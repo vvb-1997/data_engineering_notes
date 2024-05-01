@@ -46,13 +46,26 @@ class LinkedList:
         return True
 
     def has_loop(self):
+	    # 1. Initialize two pointers: 'slow' and 'fast', both starting from the head.
         fast = self.head
         slow = self.head
+
+		# 2. Continue traversal as long as the 'fast' pointer and its next node aren't None. This ensures we don't run into errors trying to access non-existent nodes.
         while fast and fast.next:
-            fast = fast.next.next
+        
+	        # 2.1. Move 'slow' pointer one step ahead.
             slow = slow.next
+
+			# 2.2. Move 'fast' pointer two steps ahead.
+            fast = fast.next.next
+
+			# 2.3. Check for cycle: If 'slow' and 'fast' meet, it means there's a cycle in the linked list.
             if fast == slow:
+
+				# 2.3.1. If they meet, return True indicating the list has a loop.
                 return True
+        
+        # 3. If we've gone through the entire list and the pointers never met, then the list doesn't have a loop.
         return False
     
 my_linked_list_1 = LinkedList(1)
@@ -80,3 +93,75 @@ print(my_linked_list_2.has_loop() ) # Returns False
     
 """
 ```
+
+## Detailed Explanation
+
+Let's break down the ==has_loop== function to understand how it detects a cycle (or loop) in a linked list. This method makes use of Floyd's cycle-finding algorithm, often referred to as the "tortoise and the hare" technique.  
+For the sake of visualization, imagine a linked list that has a loop in it, like this:
+
+```python
+1 → 2 → 3 →  4 
+           ↗ ↓
+         6 ← 5
+```
+
+In this example, nodes 4, 5, and 6 form a loop.
+
+==Method Walkthrough:== ==has_loop==
+
+```python
+def has_loop(self):
+```
+
+1. ==Initialize two pointers, slow (the tortoise) and fast (the hare):==
+
+```python
+slow = self.head
+fast = self.head
+```
+
+Both pointers start at the head of the linked list. The idea is to move the ==slow== pointer one step at a time while moving the ==fast== pointer two steps at a time.
+
+2. ==Traverse the linked list:==
+
+```python
+while fast is not None and fast.next is not None:
+```
+
+This loop ensures we continue as long as ==fast== and the node after ==fast== (==fast.next==) are not None. This is similar to the logic we used in the ==find_middle_node== function and serves to prevent potential errors by ensuring we don't access nonexistent nodes.
+
+3. ==Move the slow pointer one node and the fast pointer two nodes:==
+
+```python
+slow = slow.next
+fast = fast.next.next
+```
+For each iteration of the loop, ==slow== moves one step, and ==fast== moves two steps.
+
+4. ==Check if the slow pointer meets the fast pointer:==
+
+```python
+if slow == fast:
+	return True
+```
+
+This is the crucial step. If there's a loop in the linked list, the fast pointer (which moves twice as quickly) will eventually catch up to the slow pointer inside the loop. When they meet (point to the same node), we've found a loop, and the function returns ==True==.
+
+==Illustrative Steps for 1 → 2 → 3 → 4 → 5 → 6 (with loop from 6 to 4):==
+
+- Both ==slow== and ==fast== start at node 1.
+- After the first iteration, ==slow== is at node 2, and ==fast== is at node 3.
+- In the next iteration, ==slow== moves to node 3, and ==fast== jumps to node 5.
+- Following that, ==slow== reaches node 4, while ==fast== is now at node 6.
+- As we continue, ==slow== will be at node 5, and ==fast==, having moved two steps, will loop back and land on node 4.
+- Eventually, as we iterate further, both pointers will meet inside the loop, confirming its presence.
+
+==5. Return== ==False== ==if no loop is found:==
+
+```python
+return False
+```
+
+If the loop completes without the two pointers meeting, it indicates there's no loop in the list, so the function returns ==False==.
+
+==Conclusion:== The ==has_loop== method efficiently determines if a linked list contains a cycle or loop. By advancing one pointer at double the speed of the other, and checking if they ever meet, we can identify loops without needing to use any additional memory or mark visited nodes. If they meet, there's a loop. If they don't, the list has no loops.
