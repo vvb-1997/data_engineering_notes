@@ -1,5 +1,6 @@
 {
   "promptDelete": false,
   "alwaysUpdateLinks": true,
-  "focusNewTab": false
+  "focusNewTab": false,
+  "showLineNumber": false
 }

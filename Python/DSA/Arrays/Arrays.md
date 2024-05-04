@@ -47,4 +47,11 @@ An array with a bunch of values having been declared with double index.
 
 - [[One Dimensional Array]]
 - [[Two Dimensional Array]]
-- 
+# When to use/avoid Arrays
+
+## When to use
+- To store multiple variables of same data type
+- Random access
+## When to avoid
+- Same data type elements
+- Reserve memory
