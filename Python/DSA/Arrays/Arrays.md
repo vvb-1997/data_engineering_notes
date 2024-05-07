@@ -7,7 +7,6 @@ element can be computed from its index by a mathematical formula.
 ![[1-D Arrays.png]]
 
 ![[1-D array allowed.png]]
-
 # Types of arrays
 
 ![[Types of arrays.png]]
@@ -55,3 +54,14 @@ An array with a bunch of values having been declared with double index.
 ## When to avoid
 - Same data type elements
 - Reserve memory
+
+
+# Summary
+
+- Arrays are extremely powerful data structures
+- Memory is allocated immediately 
+- Elements are located in contiguous locations in memory 
+- Indices start at 0 
+- Inserting elements 
+- Removing elements
+- Finding elements
