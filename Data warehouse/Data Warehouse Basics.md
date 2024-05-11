@@ -1,2 +1,129 @@
+#Data_warehouse
 # Why use data warehouse
 
+## Operational data keeping
+The data is used to **Turn the wheel** and answers below questions
+- Receive orders
+- React to complaints
+- Fill up stock
+- etc..
+It is also referred as **Online Transactional Processing** (OLTP)
+
+OLTP stands for Online Transaction Processing. OLTP has the work to administer day-to-day transactions in any organization. The main goal of OLTP is data processing not data analysis.
+### OLTP Examples
+An example considered for OLTP System is ATM Center a person who authenticates first will receive the amount first and the condition is that the amount to be withdrawn must be present in the ATM. The uses of the OLTP System are described below.
+- ATM center is an OLTP application.
+- OLTP handles the ACID properties during data transactions via the application.
+- It’s also used for Online banking, Online airline ticket booking, sending a text message, add a book to the shopping cart.
+
+![[OLTP.png]]
+
+### Requirements
+- One record at a time
+- Data input
+- No long history
+## Analytical decision making
+The data is used to **Evaluate performance** and **Decision making** and answer below questions
+- What's the best category?
+- How many sales compared to last month?
+- What can be improved?
+- etc..
+It is also referred as **Online Analytical Processing** (OLAP)
+
+OLAP stands for Online Analytical Processing. OLAP systems have the capability to analyze database information of multiple systems at the current time. The primary goal of OLAP Service is data analysis and not data processing.
+### OLAP Examples
+Any type of Data Warehouse System is an OLAP system. The uses of the OLAP System are described below.
+- Spotify analyzed songs by users to come up with a personalized homepage of their songs and playlist.
+- Netflix movie recommendation system.
+
+![[OLAP.png]]
+### Benefits of OLAP Services
+- OLAP services help in keeping consistency and calculation.
+- We can store planning, analysis, and budgeting for business analytics within one platform.
+- OLAP services help in handling large volumes of data, which helps in enterprise-level business applications.
+- OLAP services help in applying security restrictions for data protection.
+- OLAP services provide a multidimensional view of data, which helps in applying operations on data in various ways.
+### Drawbacks of OLAP Services
+- OLAP Services requires professionals to handle the data because of its complex modeling procedure.
+- OLAP services are expensive to implement and maintain in cases when datasets are large.
+- We can perform an analysis of data only after extraction and transformation of data in the case of OLAP which delays the system.
+- OLAP services are not efficient for decision-making, as it is updated on a periodic basis.
+
+### Requirement
+- Thousands of records at a time
+- Fast query performance
+- Historical context
+## Difference between OLAP and OLTP
+
+| Category            | OLAP (Online Analytical Processing)                                                                                           | OLTP (Online Transaction Processing)                                                                                                                  |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Definition          | It is well-known as an online database query management system.                                                               | It is well-known as an online database modifying system.                                                                                              |
+| Data source         | Consists of historical data from various Databases.                                                                           | Consists of only operational current data.                                                                                                            |
+| Method used         | It makes use of a data warehouse.                                                                                             | It makes use of a standard [database management system (DBMS).](https://www.geeksforgeeks.org/introduction-of-dbms-database-management-system-set-1/) |
+| Application         | It is subject-oriented. Used for [Data Mining](https://www.geeksforgeeks.org/data-mining/), Analytics, Decisions making, etc. | It is application-oriented. Used for business tasks.                                                                                                  |
+| Normalized          | In an OLAP database, tables are not normalized.                                                                               | In an OLTP database, tables are [normalized (3NF)](https://www.geeksforgeeks.org/third-normal-form-3nf/).                                             |
+| Usage of data       | The data is used in planning, problem-solving, and decision-making.                                                           | The data is used to perform day-to-day fundamental operations.                                                                                        |
+| Task                | It provides a multi-dimensional view of different business tasks.                                                             | It reveals a snapshot of present business tasks.                                                                                                      |
+| Purpose             | It serves the purpose to extract information for analysis and decision-making.                                                | It serves the purpose to Insert, Update, and Delete information from the database.                                                                    |
+| Volume of data      | A large amount of data is stored typically in TB, PB                                                                          | The size of the data is relatively small as the historical data is archived in MB, and GB.                                                            |
+| Queries             | Relatively slow as the amount of data involved is large. Queries may take hours.                                              | Very Fast as the queries operate on 5% of the data.                                                                                                   |
+| Update              | The OLAP database is not often updated. As a result, data integrity is unaffected.                                            | The data integrity constraint must be maintained in an OLTP database.                                                                                 |
+| Backup and Recovery | It only needs backup from time to time as compared to OLTP.                                                                   | The backup and recovery process is maintained rigorously                                                                                              |
+| Processing time     | The processing of complex queries can take a lengthy time.                                                                    | It is comparatively fast in processing because of simple and straightforward queries.                                                                 |
+| Types of users      | This data is generally managed by CEO, MD, and GM.                                                                            | This data is managed by clerksForex and managers.                                                                                                     |
+| Operations          | Only read and rarely write operations.                                                                                        | Both read and write operations.                                                                                                                       |
+| Updates             | With lengthy, scheduled batch operations, data is refreshed on a regular basis.                                               | The user initiates data updates, which are brief and quick.                                                                                           |
+| Nature of audience  | The process is focused on the customer.                                                                                       | The process is focused on the market.                                                                                                                 |
+| Database Design     | Design with a focus on the subject.                                                                                           | Design that is focused on the application.                                                                                                            |
+| Productivity        | Improves the efficiency of business analysts.                                                                                 | Enhances the user’s productivity.                                                                                                                     |
+
+# What is data warehouse
+
+A database used and optimized for analytical purposes. Data warehouse must be ==User friendly==, ==Fast query performance== and ==Enabling data analysis==
+
+![[ETL.png]]
+
+![[ETL Detailed.png]]
+## Goals of a data warehouse
+- Centralized and consistent location for data
+- User friendly (easy to understand)
+- Must load data consistently and repeatedly (ETL)
+- Data must be accessible fast (query performance)
+- Reporting and data visualization built on top
+
+# What is Business Intelligence
+
+Business Intelligence is made up of different strategies, procedures, and technologies and infrastructures, for example, different tools that we use to create meaningful insights with data analysis. This means that we need to gather data, we need to manage and store data, so that we can create meaningful insights with reporting, data visualizations, but also some more complex tasks, such as data mining or predictive analytics.
+
+- Data gathering
+- Data storing
+- Reporting 
+- Data visualization 
+- Data mining 
+- Predictive analytics
+
+So what we are doing in Business Intelligence is we want to use and find raw data and transform this data in such a way that we can turn it into meaningful insights. So for example, as mentioned,
+we want to do data visualizations, reporting, and those meaningful insights we want to use to understand our company better and make better decisions in the future.
+
+And now, how does a data warehouse fit in here? Well, the data warehouse is basically a very important component of Business Intelligence. Because we use this data warehouse as our data storage, but not only that, it's specifically for a centralized location of the structured data and the transformed data that we then can use to do our data visualizations, our reporting, and therefore it is one of the most important components of Business Intelligence.
+
+But you might also have heard of something that is called a Data Lake. So what is the difference between a data lake and a data warehouse? Because a data lake is also used to store data, and nowadays this is a word that's used so commonly, and therefore we also now quickly want to have a look at a data lake, and what the difference is to a data warehouse.
+## Data Warehouse and Data Lake
+
+Data lake & data warehouse are BOTH used as centralized data storage.
+
+|              | Data Lake       | Data Warehouse                |
+| :----------: | --------------- | ----------------------------- |
+|     Data     | Raw             | Processed                     |
+| Technologies | Big Data        | Database                      |
+|  Structure   | Unstructured    | Structured                    |
+|    Usage     | Not defined yet | Specific and ready to be used |
+|    Users     | Data Scientists | Business Users and IT         |
+
+
+# Data Warehouse Architecture
+
+[[Data Warehouse Architecture]]
+# References
+
+([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
