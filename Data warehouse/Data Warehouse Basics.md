@@ -122,8 +122,87 @@ Data lake & data warehouse are BOTH used as centralized data storage.
 
 
 # Data Warehouse Architecture
-
 [[Data Warehouse Architecture]]
+# Dimensional Modeling
+[[Dimensional Modeling]]
+# Schema types
+- [[Star Schema]] (Mainly used in Data Marts and Core)
+- [[Snowflake Schema]] (Can be used in Core)
+# Facts
+## Properties of Fact table
+- [[Additivity of facts]]
+- [[Nulls in Fact]]
+- [[Year to Date Fact]]
+## Types of Fact table
+- [[Transaction Fact Table]]
+- [[Periodic Snapshot Fact Table]]
+- [[Accumulation Snapshot Fact Table]]
+
+|       **Type**        | **Transactional**                   | **Periodic Snapshot**                            | **Accumulating Snapshot**          |
+| :-------------------: | :---------------------------------- | :----------------------------------------------- | :--------------------------------- |
+|       **Grain**       | 1 row = 1 transaction               | 1 row = 1 defined period (plus other dimensions) | 1 row = lifetime of process/event  |
+|  **Date Dimensions**  | 1 Transaction date                  | Snapshot date (end of period)                    | Multiple snapshot dates            |
+| **No. Of dimensions** | High                                | Lower                                            | Very High                          |
+|       **Facts**       | Measures of transactions            | Cumulative measures of<br>transactions in period | Measures of process in<br>lifespan |
+|       **Size**        | Largest (most detailed grain)       | Middle (less detailed grain)                     | Lowest (highest aggregation)       |
+|    **Performance**    | Can be improved with<br>aggregation | Better (less detailed)                           | Good performance                   |
+## Special Fact tables
+- [[Factless Fact Table]]
+- [[Natural vs. Surrogate key]]
+## Steps to create a fact table
+1. **Identify business process for analysis** 
+	Example: Sales, Order processing
+2. **Declare the grain**
+	Example: Example: Transaction, Order, Order lines, Daily, Daily + location
+3. **Identify dimensions that are relevant** (Soul for analysis)
+	What, when, where, how and why
+	Example: Time, locations, products, customers, etc.
+4. **Identify facts for measurement**
+	Defined by the grain & not by specific use case
+
+![[Steps to create FT example.png]]
+# Dimension
+
+Dimension table always has a Primary Key (PK). Primary key is natural key which is coming straight out of the source system. But this is not the best way of a primary key. We should rather replace those primary keys and use surrogate keys.
+![[Dimension example 1.png]]
+
+Surrogate key is usually a integer number that is just increasing one by one.
+![[Dimension example 2.png]]
+
+And then also the question is do we need to keep those original natural keys? Yes, we can, but oftentimes it is also not necessary. But what we should do is we want to have usually a lookup table. So this is just giving the reference of our key so our created surrogate key and the natural key. So this is done very easily. We can just query in SQL the distinct values of this product ID, the natural key and then just populate a sequence next to that. That is very easy in SQL or also the other ETL tools.
+![[Dimension example 3.png]]
+## How can the new surrogate key mapped to fact table
+
+Initial Fact table will contain the natural key (Order_line_ID) as showed below
+![[Dimension fact table example.png]]
+
+The product_dim table with the natural and surrogate key.
+![[Dimension example 3.png]]
+
+Using the below SQL query the surrogate key can be mapped to Fact Table.
+![[Dimension SQL example.png]]
+
+Resulting in the below output which contains all the data from fact table and the new surrogate key from product dimension table
+![[Dimension fact table example 2.png]]
+
+## Properties of Dimension table
+- Always has a Primary Key (PK)
+- Relatively few rows / many columns with descriptive attributes
+- Group & Filter ("slice & dice")
+
+![[Dimension example 4.png]]
+
+![[Dimension example 5.png]]
+
+## Dimension Types
+- [[Date Dimension]]
+- [[Nulls in Dimension]]
+- [[Hierarchies in dimensions]]
+- [[Conformed dimensions]]
+- [[Degenerate dimension]]
+- [[Junk dimensions]]
+- [[Role playing dimension]]
+- 
 # References
 
 ([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
