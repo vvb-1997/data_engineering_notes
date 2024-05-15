@@ -163,6 +163,7 @@ Data lake & data warehouse are BOTH used as centralized data storage.
 ![[Steps to create FT example.png]]
 # Dimension
 
+## Introduction
 Dimension table always has a Primary Key (PK). Primary key is natural key which is coming straight out of the source system. But this is not the best way of a primary key. We should rather replace those primary keys and use surrogate keys.
 ![[Dimension example 1.png]]
 
@@ -202,7 +203,20 @@ Resulting in the below output which contains all the data from fact table and th
 - [[Degenerate dimension]]
 - [[Junk dimensions]]
 - [[Role playing dimension]]
-- 
+## Slowing Changing Dimension
+Till now we have pretended dimensions never change, but surprise indeed they are rather static but usually they do change in the real world. 
+How to  handle SCDs
+- Be proactive: Ask about potential changes
+- Business users + IT
+- Strategy for each changing attribute
+
+Kimball introduced SCD in 1995 and distinguished between different types (1, 2, 3, …)
+- [[Type 0 Retain Original]]
+- [[Type 1 Overwrite]]
+- [[Type 2 New row]]
+- [[Administrate Type 2 SCD]]
+- [[Mixing Type 1 + 2]]
+- [[Type 3 Additional Attributes]]
 # References
 
 ([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
