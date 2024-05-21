@@ -217,6 +217,13 @@ Kimball introduced SCD in 1995 and distinguished between different types (1, 2, 
 - [[Administrate Type 2 SCD]]
 - [[Mixing Type 1 + 2]]
 - [[Type 3 Additional Attributes]]
+
+# ETL 
+
+Three steps for ETL
+- [[Extract]]
+- [[Load]]
+- [[Transform]]
 # References
 
 ([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
