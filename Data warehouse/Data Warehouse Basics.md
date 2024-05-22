@@ -224,6 +224,61 @@ Three steps for ETL
 - [[Extract]]
 - [[Load]]
 - [[Transform]]
+
+# ETL Tools
+
+| **Enterprise**                                                   | **Open<br>source**                                       | **Cloud<br>native**                                              | **Custom**         |
+| ---------------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------- | ------------------ |
+| Commercial                                                       | Source code                                              | Cloud technology                                                 | Own development    |
+| Most mature                                                      | Often free                                               | Data already in cloud?                                           | Customized         |
+| Graphical interface                                              | Graphical interface                                      | Efficiency                                                       | Internal resources |
+| Architecural needs                                               | No guaranteed Support                                    | No Flexibility                                                   | Own Maintenance    |
+| Support                                                          | No ease of use                                           |                                                                  | Own Training       |
+| Ex: Alteryx, Informatica, Oracle Data Integrator, Microsoft SSIS | Ex: Talend Open Studio, Pentaho Data Integration, Hadoop | Ex: Azure Data Factory, AWS Glue, Google Cloud Data Flow, Stitch |                    |
+# ELT
+[[ELT]]
+
+# ETL vs ELT
+
+| ETL                                      | ELT                                    |
+| ---------------------------------------- | -------------------------------------- |
+| More stable with defined transformations | Requires high performance DB           |
+| More generic use cases                   | More flexible                          |
+| Security                                 | Transformations can be changed quickly |
+| Batch processed                          | Real time                              |
+| Reporting                                | Data Science, ML                       |
+| Generic use cases                        | Real time requirements                 |
+| Easy to use                              | Big data                               |
+
+
+# Data Warehouse use cases
+
+- Basis for reporting
+	- Performance
+	- Strategic decisions
+	- Integrated
+- Enables business users to analyze data
+	- Accessible
+	- Data Quality
+	- Easy to use
+- Predictive Analytics
+	- Continuous Training of Machine Learning Models
+- Use Big Data
+	- Aggregate & Filter
+
+# On-Premises vs Cloud
+
+| On-Premises                                      | Cloud                                                    |
+| ------------------------------------------------ | -------------------------------------------------------- |
+| Own local hardware                               | Software as a service                                    |
+| Own Storage and Compute layer                    | Pay for what you use                                     |
+| Own Software layer                               | Managed service                                          |
+| Physical data center                             | Optimized for scalable analytics                         |
+| Benefits: Full control                           | Benefits: Fully managed, Scalable, Time to market        |
+| Benefits: Data governance & compliance           | Benefits: Cost efficient, Managed security, Availability |
+| Problems: Full responsibility, High costs        | Problems: Regulations                                    |
+| Problems: More internal resources, Less flexible | Problems: Different providers?                           |
+
 # References
 
 ([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
