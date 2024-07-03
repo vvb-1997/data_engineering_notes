@@ -278,7 +278,6 @@ Three steps for ETL
 | Benefits: Data governance & compliance           | Benefits: Cost efficient, Managed security, Availability |
 | Problems: Full responsibility, High costs        | Problems: Regulations                                    |
 | Problems: More internal resources, Less flexible | Problems: Different providers?                           |
-
 # References
 
 ([Difference between OLAP and OLTP in DBMS - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/))
